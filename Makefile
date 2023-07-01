@@ -1,5 +1,15 @@
-ssms : main.c
-	gcc main.c -o ssms
+CC = gcc
+CFLAGS = -Wall -Werror
+TARGET = ssms
+SOURCE = main.c
 
-clean :
-	rm ssms
+.PHONY: all clean
+
+all: $(TARGET)
+
+$(TARGET): $(SOURCE)
+	$(CC) $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f $(TARGET)
+
